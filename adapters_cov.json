@@ -1,0 +1,24 @@
+[
+    {
+        "Name": "Coverity-SE",
+        "Type": "SimpleExecutable",
+        "Stage": "execution",
+        "Config": {
+            "command": [
+                "./cov.sh"
+            ],
+            "Conditions":["Prescription.Security.Activities.Sast.Enabled"],
+            "Require": [
+                "Coverity.InstanceUrl",
+                "Coverity.Username",
+                "Coverity.Password",
+                "Coverity.Stream",
+                "Coverity.FilePath"
+               
+            ],
+            "Success": {
+                "Coverity.ScanSuccessful": true
+            }
+        }
+    }
+]
